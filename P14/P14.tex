@@ -1,0 +1,62 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{multicol}
+\usepackage{eqnarray}
+\usepackage{wrapfig}
+
+
+\usepackage{natbib}
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=black,
+	filecolor=mangeta,      
+	urlcolor=blue,
+	pdftitle={Overleaf Example},
+	pdfpagemode=FullScreen,
+}
+
+\usepackage[margin=0.6in]{geometry}
+
+\title{52nd—24th INTERNATIONAL-RUDOLF ORTVAY \\ PROBLEM SOLVING CONTEST IN PHYSICS \\ Problem 14}
+\author{Nguyen Thanh Long}
+\date{\today}
+
+\begin{document}
+	
+\maketitle
+	
+\noindent Using the Ampere's law, we know that the magnetic field inside the soleloid (by the soleloid) is 
+\begin{equation} \label{eq1}
+	B_0 = \frac{\mu_0 N I}{l} .
+\end{equation}	
+\noindent We can denote easily that in the homogeneous magnetic field, a tiny small iron sphere with relative permeability $\mu_r$ will have the magnetic dipole \cite{1} :
+\begin{equation} \label{eq2}
+	m = V \frac{3 \left( \mu_r - 1 \right) B_0 }{\mu_0 \left( \mu_r + 2 \right) } .
+\end{equation}	
+\noindent The magnetic flux that the dipole effect on a circle wire distance $z$ from the dipole is:
+$$ \frac{ d \Phi (z) }{d N} = \int_0^r \frac{\mu_0}{4 \pi}  \frac{ 3 z^2 - \left( z^2 + r^2 \right) }{ \left( z^2 + r^2 \right)^{\frac{5}{2}} } \cdot 2 \pi r dr = \frac{ \mu_0 m r^2 }{2 \left( z^2 + r^2 \right)^{\frac{3}{2}} } .$$
+\noindent Where $dN = \frac{N}{l} dz$, so the total magnetic flux of the soleloid (caused by dipole) will be:
+\begin{equation} \label{eq3}
+	\Phi = \int_{-\infty}^{\infty} \frac{N}{l} \frac{ \mu_0 m r^2 }{2 \left( z^2 + r^2 \right)^{\frac{3}{2}} } dz = \frac{ N \mu_0 m}{l} .
+\end{equation}	
+
+\noindent From (\ref{eq1}), (\ref{eq2}) and (\ref{eq3}), we have:
+$$ \Phi = \frac{ 3 \mu_0 \left( \mu_r -1 \right) V N^2}{\left( \mu_r + 2 \right) l^2 } I .$$
+
+\noindent Therefore, the self-inductance change of the solenoid is;
+$$ \Delta L = \frac{ 3 \mu_0 \left( \mu_r -1 \right) V N^2}{\left( \mu_r + 2 \right) l^2 } .$$
+\noindent With $\mu_r \gg 1$, the result will be: 
+$$ \Delta L = \frac{ 3 \mu_0 V N^2}{l^2} .$$
+
+\bibliographystyle{plain}
+\begin{thebibliography}{1}
+	\bibitem{1} J. D. Jackson, \textit{Classical Electrodynamics}, 3rd ed. (John Wiley \& Sons, New York, NY, 1998).
+\end{thebibliography}	
+	
+\end{document}

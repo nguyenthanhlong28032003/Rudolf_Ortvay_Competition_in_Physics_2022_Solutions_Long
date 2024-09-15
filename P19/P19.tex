@@ -1,0 +1,97 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{multicol}
+\usepackage{eqnarray}
+\usepackage{wrapfig}
+
+
+\usepackage{natbib}
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=black,
+	filecolor=mangeta,      
+	urlcolor=blue,
+	pdftitle={Overleaf Example},
+	pdfpagemode=FullScreen,
+}
+
+\usepackage[margin=0.6in]{geometry}
+
+\title{52nd—24th INTERNATIONAL-RUDOLF ORTVAY \\ PROBLEM SOLVING CONTEST IN PHYSICS \\ Problem 19}
+\author{Nguyen Thanh Long}
+\date{\today}
+
+\begin{document}
+	
+\maketitle
+
+\noindent In this problem, we set $4\pi \varepsilon_0 = c = 1$. The coordinate of electron is perfomed by $(r, \theta)$ in the polar coordinate system.
+	
+\noindent The electronic potential of electron is: $ V(r) = - \frac{Ze^2}{r}$. So we can write the Lagragian of this electron \cite{1} is: 
+$$ \mathcal{L} = - m \sqrt{ 1 - \dot{r}^2 - r^2 \dot{\theta}^2 } + \frac{Z e^2}{r}. $$
+\noindent This Lagrangian doesn't have any explicit dependence on $\theta$. Therefore, the angular momentum of the electron is a constant $L$, so we can write:
+\begin{equation} \label{eq1}
+	L = \frac{\partial \mathcal{L} }{\partial \dot{\theta}} = m \frac{ r^2 \dot{\theta} }{\sqrt{1 - \dot{r}^2 - r^2 \dot{\theta}^2 }} .
+\end{equation}
+\noindent Cause our Lagragian doesn't have any explitcit dependence on time $t$, conservation the energy of the electron:
+\begin{equation} \label{eq2}
+	E = \frac{ m }{\sqrt{ 1 - \dot{r}^2 - r^2 \dot{\theta}^2 }} - \frac{Ze^2}{r} .
+\end{equation}
+
+\noindent From (\ref{eq1}) and (\ref{eq2}), we find $\dot{\theta}$ by $r$: 
+\begin{equation} \label{eq3}
+	\dot{\theta} = \frac{L}{E r^2 + Z e^2 r}.
+\end{equation}	
+\noindent Let $r_{\theta}' = \frac{dr}{d \theta}$. So we can perform $\dot{r}$ by $r_{\theta}'$: 
+$$ \dot{r} = \frac{d r}{d \theta} \dot{\theta}.$$
+\noindent We write again (\ref{eq1}):
+$$ \frac{ \dot{r} }{ \dot{\theta} } = \sqrt{ \frac{1}{ \dot{\theta}^2} - r^2 - \left( \frac{m}{L} \right)^2 r^4 }  .$$
+\noindent And put $\dot{\theta}$ and $\dot{r}$ in our new equation, we will have a relationship of $r_{\theta}'$ and $r$ to find the orbital of the electron:
+\begin{align*}
+	\frac{d r}{d \theta} & =  \sqrt{ \left( \frac{ E r^2 - Z e^2 r }{L} \right)^2 - r^2 - \left( \frac{m}{L} \right)^2 r^4 } \\
+	\Rightarrow \theta & = \int \frac{dr}{ \sqrt{ \frac{E^2 - m^2}{L^2} r^4 - \frac{2 E Z e^2}{L^2} r^3 + \left[ \left( \frac{ Z e^2}{L} \right)^2 -1 \right] r^2 } } \\
+	\Rightarrow \theta & = \frac{1}{ \sqrt{ 1 - \left( \frac{Ze^2}{L} \right)^2 }} \arccos \frac{ \left[ 1 - \left( \frac{ Z e^2}{L} \right)^2 \right] \frac{1}{r} - \frac{E Z e^2}{L^2} }{\sqrt{ \left( \frac{E}{L} \right)^2 - \left( \frac{m}{L} \right)^2 \left[ 1 - \left( \frac{ Z e^2}{L} \right)^2 \right]}} +C .
+\end{align*}	
+
+\noindent Choose the coordinate system with $C=0$, so the Orbital of the electron is:
+$$ r = \frac{ \frac{L}{E} \left( \frac{L}{Ze^2} - \frac{Z e^2}{L} \right) }{ 1 + \sqrt{ \left( \frac{L}{Z e^2} \right)^2 + \left( \frac{m}{E} \right)^2 - \left( \frac{m L}{ E Z e^2} \right)^2 } \cos \left\{ \sqrt{ 1 - \left( \frac{ Z e^2}{L} \right)^2 } \theta \right\}} = \frac{p}{1 + \epsilon \cos \left( \alpha \theta \right) } .$$
+\noindent So, the electron will move in a flower orbital. \\
+\noindent In the SI units \footnote{We only use the SI units to calculate some values and compare them, after that, we will back to our units}:
+$$ r = \frac{ \frac{Lc}{E} \left( \frac{ 4 \pi \varepsilon_0 cL}{Ze^2} - \frac{Z e^2}{ 4 \pi \varepsilon_0 c L} \right) }{ 1 + \sqrt{ \left( \frac{4 \pi \varepsilon_0 cL}{Z e^2} \right)^2 + \left( \frac{m c^2}{E} \right)^2 - \left( \frac{ 4 \pi \varepsilon_0 c^3 m L}{ E Z e^2} \right)^2 } \cos \left\{ \sqrt{ 1 - \left( \frac{ Z e^2}{ 4 \pi \varepsilon_0 c L} \right)^2 } \theta \right\}} .$$
+\noindent In reality, with $L \sim \hbar$, $Z \sim 31$, then $ \left( \frac{ Z e^2}{ 4 \pi \varepsilon_0 c L} \right)^2 \sim 0.05$ and with bigger $Z$, we can't use the classical approximation or define the semi-axes of ellipse. Therefore, we can't make a new Kepler's 3rd law with the semi-axes. Thus, we will use $ p = \frac{L}{E} \left( \frac{L}{Ze^2} - \frac{Z e^2}{L} \right) $, $ \epsilon =  \sqrt{ \left( \frac{L}{Z e^2} \right)^2 + \left( \frac{m}{E} \right)^2 - \left( \frac{m L}{ E Z e^2} \right)^2 } $ and $ \alpha = \sqrt{ 1 - \left( \frac{ Z e^2}{ 4 \pi \varepsilon_0 c L} \right)^2 }$ to make a new Kepler's 3rd law. \\
+\noindent In this case, the orbiting time is the time $T$ from $\theta=0$ to $\theta = \frac{2 \pi}{\alpha}$.
+
+a) From (\ref{eq3}):
+\begin{align*}
+	dt & = \left[ \left( \frac{E}{L} \right) r^2 + \left( \frac{Z e^2}{L} \right) r \right] d \theta \\
+	& = \frac{p}{\sqrt{ 1 - \alpha^2 }} \frac{ 1 + \left( 1 - \alpha^2 \right) \cos \left( \alpha \theta \right) }{ \left[ 1 + \epsilon \cos \left( \alpha \theta \right) \right]^2} d \theta \\
+	\Rightarrow T & = \frac{p}{\sqrt{ 1 - \alpha^2 }} \int_0^{\frac{2 \pi}{\alpha}} \frac{ 1 + \left( 1 - \alpha^2 \right) \epsilon \cos \left( \alpha \theta \right) }{ \left[ 1 + \epsilon \cos \left( \alpha \theta \right) \right]^2} d \theta \\
+	\Leftrightarrow T & = \frac{p}{\alpha \sqrt{ 1 - \alpha^2}} \int_0^{2 \pi} \frac{ 1 + \left( 1 - \alpha^2 \right) \epsilon \cos x }{ \left[ 1 + \epsilon \cos x \right]^2 } dx \\
+	& = 2 \pi p \frac{ 1 - \left( 1 - \alpha^2 \right) \epsilon^2 }{\alpha \sqrt{1 - \alpha^2} \left( 1 - \epsilon^2 \right)^{\frac{3}{2}} } .
+\end{align*}	
+
+b) In the electron frame: 
+
+\begin{align*}
+	dt' & = dt \sqrt{ 1 - \dot{r}^2 - r^2 \dot{\theta}^2 } \\
+	& = \frac{m}{L} r^2 d \theta \\
+	& = p \alpha \sqrt{ \frac{ \left( 1 - \alpha^2 \right) \epsilon^2 - 1}{ 1 - \alpha^2 }} \frac{d \theta}{ \left[ 1 + \epsilon \cos \left( \alpha \theta \right) \right]^2 } \\
+	\Rightarrow T' & = p \sqrt{ \frac{ \left( 1 - \alpha^2 \right) \epsilon^2 - 1}{ 1 - \alpha^2 }} \int_0^{2 \pi} \frac{dx}{  \left[ 1 + \epsilon \cos x \right]^2} \\
+	& = 2 \pi p \frac{ \sqrt{ 1 - \left( 1 - \alpha^2 \right) \epsilon^2 } }{ \sqrt{1 - \alpha^2} \left( 1 - \epsilon^2 \right)^{\frac{3}{2}} } .
+\end{align*}	
+
+
+
+\bibliographystyle{plain}
+\begin{thebibliography}{2}
+	\bibitem{1}  A. S. Kompaneyets (1978), \textit{A Course Of Theoretical Physics, Vol. 1 Fundamental Laws}, Mir titles.
+	\bibitem{2}  Lim Yung-Kou (1994), \textit{Problems and Solutions on Mechanics}, WORLD SCIENTIFIC, pp. 738-741.
+\end{thebibliography}	
+	
+\end{document}
